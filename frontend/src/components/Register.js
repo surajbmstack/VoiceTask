@@ -10,8 +10,8 @@ function Register({setUser}) {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { username, password });
-     const res= await axios.post('http://localhost:5000/api/auth/login', { username, password });
+      await axios.post('https://voicetaskbackend.onrender.com/api/auth/register', { username, password });
+     const res= await axios.post('https://voicetaskbackend.onrender.com/api/auth/login', { username, password });
       setUser(res.data);
       localStorage.setItem("token", res.data.token);
       navigate('/tasks')
