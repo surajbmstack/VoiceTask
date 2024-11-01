@@ -21,7 +21,7 @@ function TaskManager() {
   const fetchTasks = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await axios.get('http://localhost:5000/api/tasks', {
+      const response = await axios.get('https://voicetaskbackend.onrender.com/api/tasks', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(response.data);
@@ -34,7 +34,7 @@ function TaskManager() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.post('http://localhost:5000/api/tasks', { text: taskText }, {
+      await axios.post('https://voicetaskbackend.onrender.com/api/tasks', { text: taskText }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTaskText('');
@@ -48,7 +48,7 @@ function TaskManager() {
   const handleDeleteTask = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+      await axios.delete(`https://voicetaskbackend.onrender.com/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTasks();
